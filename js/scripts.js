@@ -15,25 +15,29 @@ pizzaType.prototype.priceIs = function () {
 // UI logic 
 
 function pizzaToppingPrice() {
-    document.getElementById("toppings").innerText = toppingType;
-    document.getElementById("size").innerText = sizeType;
-    pizzaPrice = [];
+    button1.addEventListener("submit", () => {
+        document.getElementById("toppings").innerText = toppingType;
+        document.getElementById("size").innerText = sizeType;
+        pizzaPrice = [];
 
-    if (toppingType === "Veggie" || toppingType === "Pepperoni" && sizeType === "Small") {
-        pizzaPrice.push("$10");
-    } else if (toppingType === "Veggie" || toppingType === "Pepperoni" && sizeType === "Medium") {
-        pizzaPrice.push("$12");
-    } else if (toppingType === "Veggie" || toppingType === "Pepperoni" && sizeType === "Large") {
-        pizzaPrice.push("$14");
-    } else if (toppingType === "Cheese" && sizeType === "Small") {
-        pizzaPrice.push("$8");
-    } else if (toppingType === "Cheese" && sizeType === "Medium") {
-        pizzaPrice.push("$10");
-    } else if (toppingType === "Cheese" && sizeType === "Large") {
-        pizzaPrice.push("$12");
-    } else {
-        pizzaPrice.push("$12")
-    }
+        if (toppingType === "Veggie" || toppingType === "Pepperoni" && sizeType === "Small") {
+            pizzaPrice.push("$10");
+        } else if (toppingType === "Veggie" || toppingType === "Pepperoni" && sizeType === "Medium") {
+            pizzaPrice.push("$12");
+        } else if (toppingType === "Veggie" || toppingType === "Pepperoni" && sizeType === "Large") {
+            pizzaPrice.push("$14");
+        } else if (toppingType === "Cheese" && sizeType === "Small") {
+            pizzaPrice.push("$8");
+        } else if (toppingType === "Cheese" && sizeType === "Medium") {
+            pizzaPrice.push("$10");
+        } else if (toppingType === "Cheese" && sizeType === "Large") {
+            pizzaPrice.push("$12");
+        } else {
+            pizzaPrice.push("Please Select the options above.")
+        };
+
+        document.querySelector("span#results").innerText = pizzaPrice;
 
 
-// if statement
+    });
+}
