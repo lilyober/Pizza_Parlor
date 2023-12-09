@@ -7,6 +7,11 @@ function pizzaType(topping, size) {
     this.size = size;
 }
 
+pizzaType.prototype.priceIs = function () {
+    return this.topping + " " + this.size + " = "
+};
 
 
 // UI logic 
+
+// if statement
