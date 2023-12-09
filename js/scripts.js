@@ -7,37 +7,27 @@ function pizzaType(topping, size) {
     this.size = size;
 }
 
-pizzaType.prototype.priceIs = function () {
-    return this.topping + " " + this.size + " = "
+pizzaType.prototype.priceIs = function (topping) {
+    if (topping === "Cheese") {
+        this.topping = "$8";
+    } else if (topping === "Pepperoni" || topping === "Veggie") {
+        this.topping = "$10";
+    }
+    return this.topping;
+
 };
 
 
 // UI logic 
 
-function pizzaToppingPrice() {
-    button1.addEventListener("submit", () => {
-        document.getElementById("toppings").innerText = toppingType;
-        document.getElementById("size").innerText = sizeType;
-        pizzaPrice = [];
+window.onload = function () {
+    let form = document.getElementById("form");
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        let topping = document.getElementById("topping").innerText;
+        document.getElementById("toppings").innerText = topping;
 
-        if (toppingType === "Veggie" || toppingType === "Pepperoni" && sizeType === "Small") {
-            pizzaPrice.push("$10");
-        } else if (toppingType === "Veggie" || toppingType === "Pepperoni" && sizeType === "Medium") {
-            pizzaPrice.push("$12");
-        } else if (toppingType === "Veggie" || toppingType === "Pepperoni" && sizeType === "Large") {
-            pizzaPrice.push("$14");
-        } else if (toppingType === "Cheese" && sizeType === "Small") {
-            pizzaPrice.push("$8");
-        } else if (toppingType === "Cheese" && sizeType === "Medium") {
-            pizzaPrice.push("$10");
-        } else if (toppingType === "Cheese" && sizeType === "Large") {
-            pizzaPrice.push("$12");
-        } else {
-            pizzaPrice.push("Please Select the options above.")
-        };
-
-        document.querySelector("span#results").innerText = pizzaPrice;
-
+        document.querySelector("span#results").innerText = pizzaType.priceIs(topping);
 
     });
 }
