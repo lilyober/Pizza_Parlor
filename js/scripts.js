@@ -1,6 +1,6 @@
 // Business Logic 
 // object constructor for toppings and size
-// prototype method for selections -- use own formula 
+// prototype method for selections and cost -- use own formula 
 
 function pizzaType(topping, size) {
     this.topping = topping;
@@ -17,17 +17,18 @@ pizzaType.prototype.priceIs = function (topping) {
 
 };
 
-
 // UI logic 
 
 window.onload = function () {
     let form = document.getElementById("form");
     form.addEventListener("submit", (event) => {
         event.preventDefault();
-        let topping = document.getElementById("topping").innerText;
-        document.getElementById("toppings").innerText = topping;
+        let toppingsSelection = document.getElementById("toppings").value;
 
-        document.querySelector("span#results").innerText = pizzaType.priceIs(topping);
+        // let price = pizzaType;
+        // toppingsSelection.priceIs;
 
+        document.querySelector("span#results").innerText = toppingsSelection.priceIs;
+        document.querySelector("div#resetButton").removeAttribute("class");
     });
 }
